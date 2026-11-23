@@ -2,23 +2,24 @@
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>金沢オタクスタンプラリーチェックシート</title>
-<style>
-*{box-sizing:border-box} body{margin:0;font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;background:linear-gradient(160deg,#fdeef5,#e8f3ff 55%,#eafaf0);color:#26314d;min-height:100vh}
-header{position:sticky;top:0;background:rgba(255,255,255,.82);backdrop-filter:blur(10px);padding:10px 16px;z-index:5;border-bottom:1px solid rgba(38,49,77,.08)}
-h1{font-size:19px;margin:2px 0 6px} .prog{font-weight:700;font-size:15px} .bar{height:10px;background:#dde5f2;border-radius:99px;overflow:hidden;margin-top:6px} .bar>i{display:block;height:100%;background:linear-gradient(90deg,#ff8fb5,#ffb35c);width:0%}
-main{max-width:640px;margin:0 auto;padding:14px 14px 40px} .hero{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.75);border-radius:18px;padding:12px}
-.hero img{width:96px;height:96px;object-fit:cover;border-radius:14px} .bubble{position:relative;background:#fff;border:2px solid #26314d;border-radius:14px;padding:8px 12px;font-weight:700;font-size:14.5px;margin-bottom:8px;display:inline-block} .bubble::after{content:"";position:absolute;left:-10px;top:50%;margin-top:-6px;border:6px solid transparent;border-right-color:#26314d;border-left:0} .warn{background:#fff3d6;border:1px solid #f2c14e;border-radius:12px;padding:10px 12px;margin:12px 0;font-size:14px}
-.next{background:#26314d;color:#fff;border-radius:16px;padding:14px;margin:12px 0} .next b{font-size:17px} .next a{display:inline-block;margin-top:8px;margin-right:8px;background:#ffb35c;color:#26314d;font-weight:700;text-decoration:none;padding:9px 14px;border-radius:99px;font-size:14px}
-.route{display:block;text-align:center;background:#fff;border:2px solid #26314d;color:#26314d;font-weight:700;text-decoration:none;padding:11px;border-radius:99px;margin:12px 0}
-ul{list-style:none;margin:0;padding:0} .item{position:relative;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.85);border-radius:14px;padding:10px 12px;margin-bottom:9px}
+<style>*{box-sizing:border-box} body{margin:0;font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;background:#faf6ee;color:#26303f;min-height:100vh}
+header{position:sticky;top:0;background:rgba(250,246,238,.92);backdrop-filter:blur(10px);padding:10px 16px;z-index:5;border-bottom:2px solid #b8862e}
+h1{font-family:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho","Noto Serif JP",serif;font-size:19px;margin:2px 0 6px;letter-spacing:.03em} .prog{font-weight:700;font-size:15px} .bar{height:8px;background:#e7dfca;border-radius:99px;overflow:hidden;margin-top:6px} .bar>i{display:block;height:100%;background:linear-gradient(90deg,#c2402a,#b8862e);width:0%}
+main{max-width:640px;margin:0 auto;padding:14px 14px 40px} .hero{display:flex;gap:12px;align-items:center;background:#fffdf8;border:1px solid #e3dcc9;border-radius:14px;padding:12px}
+.hero img{width:96px;height:96px;object-fit:cover;border-radius:10px} .bubble{position:relative;background:#fff;border:1.5px solid #26303f;border-radius:12px;padding:8px 12px;font-weight:700;font-size:14.5px;margin-bottom:8px;display:inline-block} .bubble::after{content:"";position:absolute;left:-9px;top:50%;margin-top:-6px;border:6px solid transparent;border-right-color:#26303f;border-left:0} .warn{background:#fdf3d7;border:1px solid #d9a441;border-radius:10px;padding:10px 12px;margin:12px 0;font-size:14px}
+.next{background:#26303f;color:#fff;border-radius:14px;padding:14px;margin:12px 0;border-top:4px solid #b8862e} .next b{font-family:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho","Noto Serif JP",serif;font-size:17px} .next a{display:inline-block;margin-top:8px;margin-right:8px;background:#c2402a;color:#fff;font-weight:700;text-decoration:none;padding:9px 14px;border-radius:99px;font-size:14px}
+.route{display:block;text-align:center;background:#fffdf8;border:1.5px solid #26303f;color:#26303f;font-weight:700;text-decoration:none;padding:11px;border-radius:99px;margin:12px 0}
+ul{list-style:none;margin:0;padding:0} .item{position:relative;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #e6dfca;border-radius:12px;padding:12px;margin-bottom:10px}
+.item::before{content:"";position:absolute;left:26px;top:0;bottom:0;width:2px;background:#d9b45c;opacity:.55}
+.item:first-child::before{top:50%} .item:last-child::before{bottom:50%}
 .item label{display:flex;align-items:center;gap:10px;flex:1;cursor:pointer} .item input{display:none}
-.box{flex:none;width:30px;height:30px;border:2.5px solid #9db2d5;border-radius:9px;display:inline-block;position:relative}
-.item input:checked + .box{background:#ffb35c;border-color:#ffb35c} .item input:checked + .box::after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;color:#26314d;font-size:19px}
-.item.done .txt{opacity:.45;text-decoration:line-through} .num{display:inline-flex;width:24px;height:24px;border-radius:50%;background:#26314d;color:#fff;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-right:2px}
-.tag{font-size:11px;background:#eef2fb;border-radius:99px;padding:2px 8px;color:#5a6b8c;white-space:nowrap} .mapbtn{flex:none;font-size:12.5px;text-decoration:none;background:#eef2fb;padding:7px 10px;border-radius:99px;color:#26314d}
-.sd{width:64px;height:64px;object-fit:cover;border-radius:12px} .reset{display:block;margin:18px auto 0;background:none;border:1px solid #9db2d5;color:#5a6b8c;border-radius:99px;padding:9px 20px;font-size:13.5px}
-.spot{display:block;font-size:12px;color:#c25e7e;margin-top:2px;text-decoration:none} .note{font-size:12.5px;color:#5a6b8c;margin-top:14px;line-height:1.7}
-.busctl{background:rgba(255,255,255,.75);border-radius:18px;padding:12px;margin:12px 0} .busctl input[type=time]{font-size:16px;padding:6px 8px;border:1.5px solid #9db2d5;border-radius:10px;background:#fff;color:#26314d} .busctl button{font-size:13.5px;padding:7px 12px;border:1.5px solid #9db2d5;border-radius:99px;background:#fff;color:#26314d;cursor:pointer} .busname{cursor:pointer;border-bottom:1.5px dotted #9db2d5} .bus.hl{background:#fff3d6;border-radius:8px;box-shadow:0 0 0 4px #fff3d6} .bus{display:block;font-size:12.5px;color:#33507e;margin-top:3px;line-height:1.65} .thumb{width:84px;height:84px;object-fit:cover;border-radius:10px;margin:6px 6px 0 0;vertical-align:top}.hours{display:inline-block;font-size:12px;color:#667085;margin-left:6px}</style></head><body>
+.box{flex:none;width:30px;height:30px;border:2px solid #8b94a5;border-radius:50%;display:inline-block;position:relative;z-index:1;background:#fff}
+.item input:checked + .box{background:#c2402a;border-color:#c2402a} .item input:checked + .box::after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:18px}
+.item.done .txt{opacity:.5} .num{display:inline-flex;width:24px;height:24px;border-radius:50%;background:transparent;border:1.5px solid #b8862e;color:#96702a;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;margin-right:2px}
+.tag{font-size:11px;background:#f1ead9;border-radius:99px;padding:2px 8px;color:#7a6a45;white-space:nowrap} .mapbtn{flex:none;font-size:12.5px;text-decoration:none;background:#fff;border:1px solid #d8d0b8;padding:7px 10px;border-radius:99px;color:#26303f}
+.sd{width:64px;height:64px;object-fit:cover;border-radius:10px} .reset{display:block;margin:18px auto 0;background:none;border:1px solid #c9c2ab;color:#66707e;border-radius:99px;padding:9px 20px;font-size:13.5px}
+.spot{display:block;font-size:12px;color:#c2402a;margin-top:2px;text-decoration:none} .note{font-size:12.5px;color:#66707e;margin-top:14px;line-height:1.7}
+.busctl{background:#fffdf8;border:1px solid #e3dcc9;border-radius:14px;padding:12px;margin:12px 0} .busctl input[type=time]{font-size:16px;padding:6px 8px;border:1.5px solid #c9c2ab;border-radius:10px;background:#fff;color:#26303f} .busctl button{font-size:13.5px;padding:7px 12px;border:1.5px solid #c9c2ab;border-radius:99px;background:#fff;color:#26303f;cursor:pointer} .busname{font-family:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho","Noto Serif JP",serif;font-weight:600;font-size:15.5px;cursor:pointer;border-bottom:1.5px dotted #b8862e} .bus.hl{background:#fdf3d7;border-radius:8px;box-shadow:0 0 0 4px #fdf3d7} .bus{display:block;font-size:13px;color:#3c4a63;margin-top:3px;line-height:1.65} .thumb{width:84px;height:84px;object-fit:cover;border-radius:8px;border:1px solid #e6dfca;margin:6px 6px 0 0;vertical-align:top}.hours{display:inline-block;font-size:12px;color:#8a6d2f;margin-left:6px}</style></head><body>
 <header><h1>金沢オタクスタンプラリーチェックシート</h1>
 <div class="prog"><span id="count">0/16 件</span> ・ <span id="rest">あと16件</span></div><div class="bar"><i id="barfill"></i></div></header>
 <main>
@@ -99,7 +100,7 @@ ul{list-style:none;margin:0;padding:0} .item{position:relative;display:flex;alig
 <p class="note">※ 全12か所コンプリート特典（蓮ノ空）には、加賀温泉駅・羽咋のエクストラスポットが別途必要です。<br>※ チェックの保存はこのブラウザ内だけです。別のブラウザや機種変更では引き継がれません。</p>
 </main>
 
-<div style="background:#fff;border:2px solid #26314d;border-radius:16px;padding:14px 16px;margin:14px 0">
+<div style="background:#fffdf8;border:1.5px solid #26303f;border-radius:14px;padding:14px 16px;margin:14px 0">
 <div style="font-weight:800;font-size:16px;margin-bottom:8px">🚌 補足：バス各社の詳細</div>
 <div style="font-size:13.5px;line-height:1.75">
 <b>■ 城下まち金沢周遊バス（北陸鉄道）</b><br>
@@ -120,7 +121,7 @@ ul{list-style:none;margin:0;padding:0} .item{position:relative;display:flex;alig
 </div>
 </div>
 
-<div style="background:#fff;border:2px solid #26314d;border-radius:16px;padding:14px 16px;margin:14px 0">
+<div style="background:#fffdf8;border:1.5px solid #26303f;border-radius:14px;padding:14px 16px;margin:14px 0">
 <div style="font-weight:800;font-size:16px;margin-bottom:8px">💡 回り方のヒント（参加者の実例より）</div>
 <div style="font-size:13.5px;line-height:1.75">
 <b>■ バスと徒歩の使い分け</b><br>
