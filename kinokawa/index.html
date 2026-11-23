@@ -49,6 +49,8 @@ main{max-width:760px;margin:0 auto;padding:4px 14px 30px}
 .photos a{flex:none}
 .photos img{width:118px;height:88px;object-fit:cover;border-radius:8px;display:block;background:var(--chip)}
 .photocap{font-size:10.5px;color:var(--sub);margin:2px 0 0}
+.menulink{margin:10px 0 0}
+.menulink a{display:block;text-align:center;background:#fdeeda;color:#9a3412;font-weight:700;font-size:14px;border-radius:9px;padding:10px 6px;text-decoration:none}
 details.menus{margin-top:10px}
 details.menus summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--acc);padding:6px 0}
 .menuphotos{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -71,6 +73,7 @@ footer a{color:var(--sub)}
 <p class="summary" id="summary"></p>
 </header>
 <div class="controls">
+<p style="margin:2px 0 6px;font-size:13.5px"><a href="menus.html" style="color:#c2410c;font-weight:700">メニュー写真だけを店別に見る（別ページ・時期つき）→</a></p>
 <div class="toggles">
 <label class="tgl">今日やってる店だけ <input type="checkbox" id="fToday" checked></label>
 <label class="tgl">18:00に開いてる店だけ <input type="checkbox" id="f18" checked></label>
@@ -85,7 +88,7 @@ footer a{color:var(--sub)}
 <main id="list"></main>
 <footer>
 <p>出典：取扱店一覧は<a href="https://kinokawa-digi.com/list.html" target="_blank" rel="noopener">きのかわ商工会デジタル商品券 公式サイト</a>（飲食店65店を抽出）。営業時間・定休日は食べログ／ホットペッパー／ぐるなび／各店公式等の公開情報で確認したもの（2026-11-23調査）。臨時休業や変更もあるので、行く前に地図リンク先か電話で確認してね。</p>
-<p>メニュー写真は店名＋メニューで検索して集めた参考写真（全店に各1〜3枚）。金額が読めるものを優先したけど、別店舗の写真や古いメニューが混ざる場合があるので、金額は目安として見てね。違う写真を見つけたら教えて、その店だけ外すよ。</p>
+<p>メニュー写真は<a href="menus.html">別ページ</a>に分けたよ（店別・写真の時期の目安つき）。金額が読めるものを優先したけど、別店舗の写真や古いメニューが混ざる場合があるので、金額は目安として見てね。</p>
 <p>予算の目安は食べログ／ホットペッパー等の公開情報（2026-11-23調査、47店ぶん確認・18店は不明）。参考写真は各店の公開写真を検索で集めたもので、実際の店舗・料理と異なる場合があるよ。</p>
 <p>「今日」「18:00」は、このページを開いた日の曜日で自動判定してるよ。祝日定休のある店（数店）は祝日一覧でも判定してるけど、隔週休み・不定休までは判定しきれないので各店の注意書きを見てね。</p>
 </footer>
@@ -134,7 +137,7 @@ function render(){
   const q=document.getElementById("q").value.trim();
   const list=document.getElementById("list"); list.innerHTML="";
   let shown=0, at18count=0;
-  SHOPS.forEach(s=>{
+  SHOPS.forEach((s,idx)=>{ s.idx=idx;
     const st=status(s);
     if(st.today===true&&st.at18) at18count++;
     if(genre!=="すべて"&&s.genre!==genre) return;
@@ -154,7 +157,7 @@ function render(){
       (s.budget && s.budget!=="不明" ? '<p class="budget"><span class="yen">予算の目安</span>：'+s.budget+"</p>" : '<p class="budget unknown">予算の目安：不明</p>')+
       (s.note? '<p class="note">'+s.note+"</p>":"")+
       '<p class="addr">〒'+s.zip+" "+s.address+"</p>"+
-      (s.menus && s.menus.length ? '<details class="menus"><summary>メニュー写真を見る（'+s.menus.length+'枚・金額が読めます）</summary><div class="menuphotos">'+s.menus.map(u=>'<a target="_blank" rel="noopener" href="'+u+'"><img loading="lazy" src="'+u+'" alt="'+s.name+' メニュー写真"></a>').join("")+'</div><p class="photocap">メニュー写真は参考です。別店舗・旧メニューが混ざる場合があります</p></details>' : "")+
+      (s.menus && s.menus.length ? '<p class="menulink"><a href="menus.html#shop-'+s.idx+'">メニュー写真（'+s.menus.length+'枚）は別ページで見る →</a></p>' : "")+
       (s.photos && s.photos.length ? '<div class="photos">'+s.photos.map(u=>'<a target="_blank" rel="noopener" href="'+u+'"><img loading="lazy" src="'+u+'" alt="'+s.name+' 参考写真"></a>').join("")+'</div><p class="photocap">参考写真 '+s.photos.length+'枚（外部の公開写真・タップで拡大）</p>' : "")+
       '<div class="btns"><a class="btn map" target="_blank" rel="noopener" href="'+s.map+'">Googleマップで見る</a>'+telBtn+"</div>";
     list.appendChild(d);
